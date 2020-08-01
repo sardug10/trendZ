@@ -1,0 +1,456 @@
+//basic configurations
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+  padding: 3rem;
+
+  &::-moz-selection {
+    color: #323232;
+  }
+
+  &::selection {
+    color: #323232;
+  }
+}
+
+.header {
+  height: 100vh;
+  // background: linear-gradient(to right, #ebc9d1 50%, #e1e3e2 50%);
+  background: linear-gradient(to right, #ebc9d1d2 50%, #e1e3e2bc 50%),
+    url("../img/pexels-samad-ismayilov-735552.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  &__img {
+    position: absolute;
+    height: 40rem;
+    width: 30rem;
+    right: 5%;
+    border-radius: 0.5rem;
+  }
+}
+
+/* STICKY NAV*/
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.931);
+  box-shadow: 0px 3px 3px gainsboro;
+  z-index: 999;
+}
+
+.navbar {
+  padding: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+
+  &__logo {
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-transform: capitalize;
+  }
+
+  &__item {
+    margin-right: 4rem;
+
+    &:hover {
+      transform: scale(1.25);
+      text-shadow: 0 1rem 1rem rgba(#000, 0.5);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.6rem;
+  }
+}
+
+.hero {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  -webkit-animation: move-in-left 1.5s ease-in-out;
+  animation: move-in-left 1.5s ease-in-out;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 6.4rem;
+    font-weight: 900;
+    letter-spacing: 0.6rem;
+    color: rgba(#323232, 0.85);
+    text-shadow: 2rem 1rem 1rem rgba(#000, 0.2);
+    margin-bottom: 2.2rem;
+  }
+
+  &__tagline {
+    text-align: center;
+    color: rgba(#323232, 0.85);
+    font-size: 2.4rem;
+    letter-spacing: 0.15rem;
+    text-transform: capitalize;
+  }
+}
+
+@-webkit-keyframes move-in-left {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+
+  80% {
+    left: 52%;
+    opacity: 0.8;
+  }
+
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes move-in-left {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+
+  80% {
+    left: 52%;
+    opacity: 0.8;
+  }
+
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+// SECTION-TRENDING
+
+.trending {
+  height: auto;
+  padding: 10rem;
+  position: relative;
+
+  &__carousel {
+    margin-top: 10rem;
+  }
+
+  &__image {
+    height: 35rem;
+    width: 30rem;
+    transform: scale(0.95);
+    border-radius: 0.5rem;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
+
+.carousel-cell {
+  margin-right: 5rem;
+}
+.main-carousel:hover :not(:hover) {
+  transform: scale(0.9);
+}
+
+// HEADING
+.heading {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+
+// PRIMARY HEADING
+.heading--primary {
+  font-size: 2.4rem;
+  color: rgba(#323232, 0.85);
+  letter-spacing: 0.4rem;
+}
+
+// BACKGROUND HEADING
+.heading--background {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+  font-size: 6.4rem;
+  color: rgba(#323232, 0.1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//SECTION-ABOUT
+.about {
+  padding: 0rem 12rem 12rem 12rem;
+  height: auto;
+  display: flex;
+  background-color: rgba(#777777, 0.25);
+  align-items: flex-start;
+
+  &__div--photo {
+    height: 50rem;
+    width: 200rem;
+    background: linear-gradient(rgb(243, 18, 243), #eb77e1),
+      url("../img/pexels-sadman-chowdhury-2747267.jpg");
+    background-size: cover;
+    background-position: bottom;
+    margin-right: auto;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
+  }
+
+  &__div--description {
+    margin: 12rem 0 0 15rem;
+  }
+
+  &__heading {
+    font-size: 6rem;
+    word-spacing: 0.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 4rem;
+  }
+
+  &__description {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+  }
+}
+
+// SECTION-COLLECTIONS
+.collections {
+  height: auto;
+  padding: 10rem 0;
+  position: relative;
+
+  &__div {
+    margin-top: 7rem;
+    background-color: #ebc9d1;
+    padding: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__single {
+    height: 25rem;
+    width: 25rem;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #323232;
+    margin-top: 1rem;
+  }
+
+  &__img {
+    height: 25rem;
+    width: 25rem;
+    border-radius: 0.5rem;
+  }
+}
+
+// SECTION TESTIMONY
+.testimony {
+  position: relative;
+  height: auto;
+  padding: 7rem;
+  background-color: rgba(#777777, 0.25);
+
+  &__carousel {
+    margin-top: 10rem;
+  }
+
+  &__cell {
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 8rem;
+    background-color: #fff;
+    transform: skew(-20deg);
+    box-shadow: 2rem 2rem 2rem rgba(#000, 0.5);
+  }
+
+  &__img {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    transform: skew(20deg);
+    margin-right: 3rem;
+  }
+
+  &__div {
+    transform: skew(20deg);
+    color: #323232;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__description {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+  }
+
+  &__name {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #eb77e1;
+    font-weight: 900;
+  }
+}
+
+//SECTION-SERVICES
+
+.services {
+  height: auto;
+  position: relative;
+  padding: 10rem;
+
+  &__box {
+    display: flex;
+    margin-top: 7rem;
+  }
+
+  &__div {
+    padding: 3rem;
+    word-spacing: 0.5rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+  }
+
+  &__icon {
+    font-size: 4rem;
+    background: linear-gradient(to right, #ff00ea, #f803ec);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    color: #323232;
+    margin: 2rem 0;
+  }
+
+  &__description {
+    font-size: 1.3rem;
+    color: #777777;
+  }
+}
+
+//MAP
+
+.map {
+  height: 50vh;
+  background-color: #ebc9d1;
+  padding: 2rem;
+}
+#map {
+  width: 100%;
+  height: 45vh;
+}
+
+.marker {
+  height: 4.2rem;
+  width: 2.5rem;
+  background: url("../img/location-pin.png");
+  background-size: cover;
+  background-position: center;
+}
+
+// FOOTER
+.footer {
+  height: auto;
+  background-color: #dddddd;
+  padding: 6rem;
+  display: flex;
+  justify-content: space-evenly;
+  color: #323232;
+
+  &__div {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__logo {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+  }
+
+  &__media-icons {
+    font-size: 2.4rem;
+  }
+
+  &__heading {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+  }
+
+  &__items {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__links {
+    color: #eb77e1;
+    text-decoration: none;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  .fa-map-marker,
+  .fa-phone,
+  .fa-envelope {
+    margin-right: 1.2rem;
+  }
+}

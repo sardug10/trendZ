@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resources/flickity.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/icon-font.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>trendZ</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <span class="navbar__logo">trendZ logo</span>
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">Shop</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">About</a>
+          </li>
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hero">
+        <h1 class="hero__title">trendZ by rj</h1>
+        <h2 class="hero__tagline"></h2>
+      </div>
+      <!-- <div class="marker"></div> -->
+    </header>
+
+    <section class="trending">
+      <h3 class="heading heading--primary">trending</h3>
+      <h3 class="heading heading--background">trending</h3>
+
+      <div class="trending__carousel">
+        <div class="main-carousel">
+          <div class="carousel-cell">
+            <img
+              src="img/40648972_2223685311037260_3428419607801626624_o.jpg"
+              alt=""
+              class="trending__image"
+            />
+          </div>
+          <div class="carousel-cell">
+            <img
+              src="img/46405233_2360690870670036_8450278052423794688_o.jpg"
+              alt=""
+              class="trending__image"
+            />
+          </div>
+          <div class="carousel-cell">
+            <img
+              src="img/46449251_2360684067337383_2484273160623489024_o.jpg"
+              alt=""
+              class="trending__image"
+            />
+          </div>
+          <div class="carousel-cell">
+            <img
+              src="img/46485337_2360685347337255_7237384678217351168_o.jpg"
+              alt=""
+              class="trending__image"
+            />
+          </div>
+          <div class="carousel-cell">
+            <img
+              src="img/46493238_2360690220670101_3518073407973359616_o.jpg"
+              alt=""
+              class="trending__image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about__div--photo"></div>
+
+      <div class="about__div--description">
+        <h1 class="about__heading">TRENDZ ONLINE FASHION SHOP</h1>
+        <p class="about__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+          tempora laudantium error. Similique placeat dolorum facilis ea, iusto
+          harum! Aliquid natus quaerat magnam deserunt laboriosam iusto
+          molestiae harum provident iure esse. Rem veniam officiis doloribus,
+          esse qui aliquam assumenda similique officia voluptatem tempora enim
+          dolor quis, voluptates ut omnis quae.
+        </p>
+      </div>
+    </section>
+
+    <section class="collections">
+      <h3 class="heading heading--primary">Our Collections</h3>
+      <h3 class="heading heading--background">collections</h3>
+
+      <div class="collections__div">
+        <div class="collections__single">
+          <img
+            src="img/40648972_2223685311037260_3428419607801626624_o.jpg"
+            alt="collection"
+            class="collections__img"
+          />
+          <h3 class="collections__title">Suit</h3>
+        </div>
+
+        <div class="collections__single">
+          <img
+            src="img/46485337_2360685347337255_7237384678217351168_o.jpg"
+            alt="collection"
+            class="collections__img"
+          />
+          <h3 class="collections__title">lehnga</h3>
+        </div>
+
+        <div class="collections__single">
+          <img
+            src="img/46449251_2360684067337383_2484273160623489024_o.jpg"
+            alt="collection"
+            class="collections__img"
+          />
+          <h3 class="collections__title">kurta</h3>
+        </div>
+
+        <div class="collections__single">
+          <img
+            src="img/46405233_2360690870670036_8450278052423794688_o.jpg"
+            alt="collection"
+            class="collections__img"
+          />
+          <h3 class="collections__title">Saree</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimony">
+      <h3 class="heading heading--background">testimony</h3>
+      <h3 class="heading heading--primary">testimony</h3>
+
+      <div class="testimony__carousel">
+        <div class="testimony__cell">
+          <img src="img/nat-8.jpg" alt="customer" class="testimony__img" />
+          <div class="testimony__div">
+            <p class="testimony__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+              dolorem sequi, alias debitis atque fugit? Quae cumque laboriosam
+              eius quibusdam?
+            </p>
+            <h4 class="testimony__name">Loren</h4>
+          </div>
+        </div>
+
+        <div class="testimony__cell">
+          <img src="img/nat-9.jpg" alt="customer" class="testimony__img" />
+          <div class="testimony__div">
+            <p class="testimony__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+              dolorem sequi, alias debitis atque fugit? Quae cumque laboriosam
+              eius quibusdam?
+            </p>
+            <h4 class="testimony__name">Brian</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <h3 class="heading heading--background">services</h3>
+      <h3 class="heading heading--primary">we want you to express yourself</h3>
+
+      <div class="services__box">
+        <div class="services__div">
+          <i class="services__icon icon-ecommerce-cart-refresh"></i>
+          <h3 class="services__title">REFUND POLICY</h3>
+          <p class="services__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+            cum numquam iste sunt labore enim natus maxime distinctio ratione
+            voluptatem?
+          </p>
+        </div>
+
+        <div class="services__div">
+          <i class="services__icon icon-ecommerce-bag"></i>
+          <h3 class="services__title">PREMIUM PACKAGING</h3>
+          <p class="services__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+            cum numquam iste sunt labore enim natus maxime distinctio ratione
+            voluptatem?
+          </p>
+        </div>
+
+        <div class="services__div">
+          <i class="services__icon icon-ecommerce-diamond"></i>
+          <h3 class="services__title">SUPERIOR QUALITY</h3>
+          <p class="services__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+            cum numquam iste sunt labore enim natus maxime distinctio ratione
+            voluptatem?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="map">
+      <div id="map"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__div">
+        <h3 class="footer__logo">TRENDZ</h3>
+        <div class="footer__media-icons-div">
+          <a href="#" class="footer__links"
+            ><i
+              class="footer__media-icons fa fa-facebook-square"
+              aria-hidden="true"
+            ></i
+          ></a>
+          <a href="#" class="footer__links"
+            ><i
+              class="footer__media-icons fa fa-instagram"
+              aria-hidden="true"
+            ></i
+          ></a>
+          <a href="#" class="footer__links"
+            ><i class="footer__media-icons fa fa-twitter" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="footer__div">
+        <h3 class="footer__heading">HELP</h3>
+        <span class="footer__items"
+          ><a href="#" class="footer__links">shipping information</a></span
+        >
+        <span class="footer__items"
+          ><a href="#" class="footer__links">Return or Exchange</a></span
+        >
+        <span class="footer__items"
+          ><a href="#" class="footer__links">Terms and condition</a></span
+        >
+        <span class="footer__items"
+          ><a href="#" class="footer__links">private policy</a></span
+        >
+      </div>
+
+      <div class="footer__div">
+        <h3 class="footer__heading">HAVE A QUESTION?</h3>
+        <span class="footer__items"
+          ><i class="fa fa-map-marker" aria-hidden="true"></i>ashok
+          vihar,delhi,india 110052</span
+        >
+        <span class="footer__items"
+          ><i class="fa fa-phone" aria-hidden="true"></i>09810583983</span
+        >
+        <span class="footer__items"
+          ><i class="fa fa-envelope" aria-hidden="true"></i>
+          info@yourdomain.com</span
+        >
+      </div>
+    </footer>
+
+    <script src="resources/flickity.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="resources/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
