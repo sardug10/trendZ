@@ -51,7 +51,7 @@ var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/sarthak10d/ckdbxok2p07su1iqv7vpov4bj",
   scrollZoom: false,
-  center: [77.174849, 28.689287],
+  center: [77.1631307, 28.6929011],
   zoom: 15,
 });
 
@@ -66,19 +66,19 @@ new mapboxgl.Marker({
   element: el,
   anchor: "bottom",
 })
-  .setLngLat([77.174849, 28.689287])
+  .setLngLat([77.1631307, 28.6929011])
   .addTo(map);
 
 // Add popup
 new mapboxgl.Popup({
   offset: 30,
 })
-  .setLngLat([77.174849, 28.689287])
+  .setLngLat([77.1631307, 28.6929011])
   .setHTML(`<p>${loc}</p>`)
   .addTo(map);
 
 // Extend map bounds to include current location
-bounds.extend([77.174849, 28.689287]);
+bounds.extend([77.1631307, 28.6929011]);
 
 map.fitBounds(bounds, {
   padding: {
