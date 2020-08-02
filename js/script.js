@@ -59,7 +59,7 @@ var map = new mapboxgl.Map({
   style: "mapbox://styles/sarthak10d/ckdbxok2p07su1iqv7vpov4bj",
   scrollZoom: false,
   center: [77.1631307, 28.6929011],
-  zoom: 15,
+  zoom: 10,
 });
 
 const loc = "Ashok Vihar,Delhi,India 110052";
