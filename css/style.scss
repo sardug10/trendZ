@@ -7,14 +7,92 @@
   box-sizing: inherit;
 }
 
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == f-hundred {
+    @media only screen and (max-width: 31.25em) {
+      @content;
+    } //500px
+  }
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+
+  @if $breakpoint == e-hundred {
+    @media only screen and (max-width: 50em) {
+      @content;
+    } //800px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+
+  @if $breakpoint == thousand {
+    @media only screen and (max-width: 62.5em) {
+      @content;
+    } //1000px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
 }
 
 body {
   font-family: "Lato", sans-serif;
   box-sizing: border-box;
   padding: 3rem;
+
+  @include respond(thousand) {
+    padding: 0;
+  }
 
   &::-moz-selection {
     color: #323232;
@@ -33,14 +111,6 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
-
-  &__img {
-    position: absolute;
-    height: 40rem;
-    width: 30rem;
-    right: 5%;
-    border-radius: 0.5rem;
-  }
 }
 
 /* STICKY NAV*/
@@ -69,10 +139,21 @@ body {
     align-items: center;
     list-style: none;
     text-transform: capitalize;
+
+    @include respond(phone) {
+      flex-direction: column;
+      justify-content: space-evenly;
+      display: none;
+      visibility: hidden;
+    }
   }
 
   &__item {
     margin-right: 4rem;
+
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
 
     &:hover {
       transform: scale(1.25);
@@ -87,6 +168,24 @@ body {
   }
 }
 
+// COLLAPSABLE MENU
+.toggle-collapse {
+  position: absolute;
+  right: 3%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: none;
+
+  @include respond(phone) {
+    display: block;
+  }
+}
+
+.show-menu {
+  display: block;
+  visibility: visible;
+}
+
 .hero {
   position: absolute;
   top: 60%;
@@ -95,6 +194,7 @@ body {
   padding: 2rem;
   -webkit-animation: move-in-left 1.5s ease-in-out;
   animation: move-in-left 1.5s ease-in-out;
+  text-align: center;
 
   &__title {
     text-transform: uppercase;
@@ -104,6 +204,14 @@ body {
     color: rgba(#323232, 0.85);
     text-shadow: 2rem 1rem 1rem rgba(#000, 0.2);
     margin-bottom: 2.2rem;
+
+    @include respond(phone) {
+      font-size: 5rem;
+    }
+
+    @include respond(f-hundred) {
+      font-size: 4rem;
+    }
   }
 
   &__tagline {
@@ -156,6 +264,18 @@ body {
   padding: 10rem;
   position: relative;
 
+  @include respond(tab-land) {
+    padding: 9rem;
+  }
+
+  @include respond(e-hundred) {
+    padding: 7rem;
+  }
+
+  @include respond(phone) {
+    padding: 6rem;
+  }
+
   &__carousel {
     margin-top: 10rem;
   }
@@ -165,6 +285,11 @@ body {
     width: 30rem;
     transform: scale(0.95);
     border-radius: 0.5rem;
+
+    @include respond(tab-port) {
+      height: 33rem;
+      width: 28rem;
+    }
 
     &:hover {
       transform: scale(1);
@@ -205,6 +330,14 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  @include respond(phone) {
+    top: 5%;
+  }
+
+  @include respond(f-hundred) {
+    font-size: 5.4rem;
+  }
 }
 
 //SECTION-ABOUT
@@ -214,6 +347,19 @@ body {
   display: flex;
   background-color: rgba(#777777, 0.25);
   align-items: flex-start;
+  @include respond(tab-land) {
+    padding: 0 10rem 10rem 10rem;
+  }
+
+  @include respond(e-hundred) {
+    padding: 0 7rem 7rem 7rem;
+  }
+
+  @include respond(phone) {
+    padding: 0 6rem 6rem 6rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__div--photo {
     height: 50rem;
@@ -226,10 +372,26 @@ body {
     background-blend-mode: screen;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
+
+    @include respond(phone) {
+      height: 35rem;
+      width: 40rem;
+      margin: 0 auto;
+    }
+
+    @include respond(f-hundred) {
+      height: 30rem;
+      width: 32rem;
+    }
   }
 
   &__div--description {
     margin: 12rem 0 0 15rem;
+
+    @include respond(phone) {
+      text-align: center;
+      margin: 5rem 0;
+    }
   }
 
   &__heading {
@@ -237,6 +399,10 @@ body {
     word-spacing: 0.5rem;
     letter-spacing: 2px;
     margin-bottom: 4rem;
+
+    @include respond(e-hundred) {
+      font-size: 4.5rem;
+    }
   }
 
   &__description {
@@ -252,12 +418,31 @@ body {
   padding: 10rem 0;
   position: relative;
 
+  @include respond(tab-land) {
+    padding: 9rem 0;
+  }
+
+  @include respond(e-hundred) {
+    padding: 7rem 0;
+  }
+
   &__div {
     margin-top: 7rem;
     background-color: #ebc9d1;
     padding: 5rem;
     display: flex;
     justify-content: space-evenly;
+
+    @include respond(e-hundred) {
+      flex-wrap: wrap;
+    }
+
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem;
+      margin-top: 4rem;
+    }
   }
 
   &__single {
@@ -286,6 +471,11 @@ body {
     height: 25rem;
     width: 25rem;
     border-radius: 0.5rem;
+
+    @include respond(thousand) {
+      height: 22rem;
+      width: 22rem;
+    }
   }
 }
 
@@ -295,6 +485,13 @@ body {
   height: auto;
   padding: 7rem;
   background-color: rgba(#777777, 0.25);
+  @include respond(tab-land) {
+    padding: 6rem;
+  }
+
+  @include respond(e-hundred) {
+    padding: 4.5rem;
+  }
 
   &__carousel {
     margin-top: 10rem;
@@ -309,6 +506,18 @@ body {
     background-color: #fff;
     transform: skew(-20deg);
     box-shadow: 2rem 2rem 2rem rgba(#000, 0.5);
+
+    @include respond(phone) {
+      padding: 2.5rem;
+    }
+
+    @include respond(phone) {
+      transform: skew(0deg);
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 2rem;
+    }
   }
 
   &__img {
@@ -317,6 +526,11 @@ body {
     border-radius: 50%;
     transform: skew(20deg);
     margin-right: 3rem;
+
+    @include respond(phone) {
+      transform: skew(0deg);
+      margin-bottom: 2rem;
+    }
   }
 
   &__div {
@@ -325,6 +539,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    @include respond(phone) {
+      align-items: center;
+      transform: skew(0deg);
+    }
   }
 
   &__description {
@@ -348,9 +567,21 @@ body {
   position: relative;
   padding: 10rem;
 
+  @include respond(tab-land) {
+    padding: 9rem;
+  }
+
+  @include respond(e-hundred) {
+    padding: 7rem;
+  }
+
   &__box {
     display: flex;
     margin-top: 7rem;
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
   }
 
   &__div {
@@ -409,11 +640,29 @@ body {
   justify-content: space-evenly;
   color: #323232;
 
+  @include respond(tab-land) {
+    padding: 5rem;
+  }
+
+  @include respond(e-hundred) {
+    padding: 3.5rem;
+  }
+
+  @include respond(f-hundred) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__div {
     padding: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    text-align: center;
+
+    @include respond(phone) {
+      padding: 2rem;
+    }
   }
 
   &__logo {
