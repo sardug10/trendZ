@@ -7,8 +7,41 @@
           box-sizing: inherit;
 }
 
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -16,6 +49,12 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 3rem;
+}
+
+@media only screen and (max-width: 62.5em) {
+  body {
+    padding: 0;
+  }
 }
 
 body::-moz-selection {
@@ -33,14 +72,6 @@ body::selection {
   background-size: cover;
   background-position: top;
   position: relative;
-}
-
-.header__img {
-  position: absolute;
-  height: 40rem;
-  width: 30rem;
-  right: 5%;
-  border-radius: 0.5rem;
 }
 
 /* STICKY NAV*/
@@ -81,8 +112,28 @@ body::selection {
   text-transform: capitalize;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .navbar__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    display: none;
+    visibility: hidden;
+  }
+}
+
 .navbar__item {
   margin-right: 4rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .navbar__item {
+    margin-bottom: 1rem;
+  }
 }
 
 .navbar__item:hover {
@@ -97,6 +148,25 @@ body::selection {
   font-size: 1.6rem;
 }
 
+.toggle-collapse {
+  position: absolute;
+  right: 3%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: none;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .toggle-collapse {
+    display: block;
+  }
+}
+
+.show-menu {
+  display: block;
+  visibility: visible;
+}
+
 .hero {
   position: absolute;
   top: 60%;
@@ -106,6 +176,7 @@ body::selection {
   padding: 2rem;
   -webkit-animation: move-in-left 1.5s ease-in-out;
   animation: move-in-left 1.5s ease-in-out;
+  text-align: center;
 }
 
 .hero__title {
@@ -116,6 +187,18 @@ body::selection {
   color: rgba(50, 50, 50, 0.85);
   text-shadow: 2rem 1rem 1rem rgba(0, 0, 0, 0.2);
   margin-bottom: 2.2rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .hero__title {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  .hero__title {
+    font-size: 4rem;
+  }
 }
 
 .hero__tagline {
@@ -162,6 +245,24 @@ body::selection {
   position: relative;
 }
 
+@media only screen and (max-width: 75em) {
+  .trending {
+    padding: 9rem;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .trending {
+    padding: 7rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .trending {
+    padding: 6rem;
+  }
+}
+
 .trending__carousel {
   margin-top: 10rem;
 }
@@ -172,6 +273,13 @@ body::selection {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
   border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .trending__image {
+    height: 33rem;
+    width: 28rem;
+  }
 }
 
 .trending__image:hover {
@@ -214,6 +322,18 @@ body::selection {
   user-select: none;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .heading--background {
+    top: 5%;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  .heading--background {
+    font-size: 5.4rem;
+  }
+}
+
 .about {
   padding: 0rem 12rem 12rem 12rem;
   height: auto;
@@ -224,6 +344,31 @@ body::selection {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+@media only screen and (max-width: 75em) {
+  .about {
+    padding: 0 10rem 10rem 10rem;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .about {
+    padding: 0 7rem 7rem 7rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .about {
+    padding: 0 6rem 6rem 6rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .about__div--photo {
@@ -239,8 +384,30 @@ body::selection {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
 }
 
+@media only screen and (max-width: 37.5em) {
+  .about__div--photo {
+    height: 35rem;
+    width: 40rem;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  .about__div--photo {
+    height: 30rem;
+    width: 32rem;
+  }
+}
+
 .about__div--description {
   margin: 12rem 0 0 15rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .about__div--description {
+    text-align: center;
+    margin: 5rem 0;
+  }
 }
 
 .about__heading {
@@ -248,6 +415,12 @@ body::selection {
   word-spacing: 0.5rem;
   letter-spacing: 2px;
   margin-bottom: 4rem;
+}
+
+@media only screen and (max-width: 50em) {
+  .about__heading {
+    font-size: 4.5rem;
+  }
 }
 
 .about__description {
@@ -262,6 +435,18 @@ body::selection {
   position: relative;
 }
 
+@media only screen and (max-width: 75em) {
+  .collections {
+    padding: 9rem 0;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .collections {
+    padding: 7rem 0;
+  }
+}
+
 .collections__div {
   margin-top: 7rem;
   background-color: #ebc9d1;
@@ -272,6 +457,27 @@ body::selection {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 50em) {
+  .collections__div {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .collections__div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 2.5rem;
+    margin-top: 4rem;
+  }
 }
 
 .collections__single {
@@ -303,11 +509,30 @@ body::selection {
   border-radius: 0.5rem;
 }
 
+@media only screen and (max-width: 62.5em) {
+  .collections__img {
+    height: 22rem;
+    width: 22rem;
+  }
+}
+
 .testimony {
   position: relative;
   height: auto;
   padding: 7rem;
   background-color: rgba(119, 119, 119, 0.25);
+}
+
+@media only screen and (max-width: 75em) {
+  .testimony {
+    padding: 6rem;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .testimony {
+    padding: 4.5rem;
+  }
 }
 
 .testimony__carousel {
@@ -332,6 +557,30 @@ body::selection {
           box-shadow: 2rem 2rem 2rem rgba(0, 0, 0, 0.5);
 }
 
+@media only screen and (max-width: 37.5em) {
+  .testimony__cell {
+    padding: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .testimony__cell {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 2rem;
+  }
+}
+
 .testimony__img {
   height: 10rem;
   width: 10rem;
@@ -339,6 +588,14 @@ body::selection {
   -webkit-transform: skew(20deg);
           transform: skew(20deg);
   margin-right: 3rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .testimony__img {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    margin-bottom: 2rem;
+  }
 }
 
 .testimony__div {
@@ -355,6 +612,16 @@ body::selection {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .testimony__div {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
 }
 
 .testimony__description {
@@ -376,11 +643,32 @@ body::selection {
   padding: 10rem;
 }
 
+@media only screen and (max-width: 75em) {
+  .services {
+    padding: 9rem;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .services {
+    padding: 7rem;
+  }
+}
+
 .services__box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 7rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .services__box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .services__div {
@@ -442,6 +730,30 @@ body::selection {
   color: #323232;
 }
 
+@media only screen and (max-width: 75em) {
+  .footer {
+    padding: 5rem;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .footer {
+    padding: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 31.25em) {
+  .footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .footer__div {
   padding: 5rem;
   display: -webkit-box;
@@ -454,6 +766,13 @@ body::selection {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  text-align: center;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .footer__div {
+    padding: 2rem;
+  }
 }
 
 .footer__logo {
