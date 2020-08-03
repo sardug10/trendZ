@@ -93,14 +93,6 @@ body {
   @include respond(thousand) {
     padding: 0;
   }
-
-  &::-moz-selection {
-    color: #323232;
-  }
-
-  &::selection {
-    color: #323232;
-  }
 }
 
 .header {
@@ -131,7 +123,9 @@ body {
   font-size: 1.4rem;
 
   &__logo {
-    text-transform: uppercase;
+    &-img {
+      height: 5rem;
+    }
   }
 
   &__list {
