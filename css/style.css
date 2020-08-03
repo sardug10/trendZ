@@ -57,14 +57,6 @@ body {
   }
 }
 
-body::-moz-selection {
-  color: #323232;
-}
-
-body::selection {
-  color: #323232;
-}
-
 .header {
   height: 100vh;
   background: -webkit-gradient(linear, left top, right top, color-stop(50%, #ebc9d1d2), color-stop(50%, #e1e3e2bc)), url("../img/pexels-samad-ismayilov-735552.jpg");
@@ -97,8 +89,8 @@ body::selection {
   font-size: 1.4rem;
 }
 
-.navbar__logo {
-  text-transform: uppercase;
+.navbar__logo-img {
+  height: 5rem;
 }
 
 .navbar__list {
